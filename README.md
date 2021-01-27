@@ -34,6 +34,8 @@ Copy the container ID for `ruby-rails-docker-container_web` (in the example abov
 
 * While you can also connect to the container that is running Postgres, it's neither necessary nor recommended. The Postgres container will persist your database.
 
+* To exit a Docker process in the terminal, simply type in `exit`.
+
 * If you need to re-run a process and you get the following error `Bind for 0.0.0.0:3000 failed: port is already allocated`, that means your processes are still running. Run `docker ps` to find the container IDs for running Docker processes and then run `docker stop [CONTAINER_ID]` where `[CONTAINER_ID]` is the container ID of the process. Use this whenever you need to manually stop a Docker process.
 
 To read more about the process in Docker's documentation, see [Quickstart: Compose and Rails](https://docs.docker.com/compose/rails/).
