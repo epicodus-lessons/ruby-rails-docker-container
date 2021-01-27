@@ -12,9 +12,7 @@ To use this repository, you'll need to follow these steps:
 
 * Once you've installed Docker, you're ready to clone this repository and `cd` into the repo.
 
-* Run `docker-compose up` to run the local server at `localhost:3000`.
-
-* You can update the Rails code in this repository as needed.
+* Run `docker-compose up` to run the local server at `localhost:3000`. However, if you go to `localhost:3000`, you will see the DB is not set up yet.
 
 ### Running Shell Commands
 
@@ -32,9 +30,9 @@ Copy the container ID for `ruby-rails-docker-container_web` (in the example abov
 
 * Next, you need to open a shell environment for the container with the following command: `docker exec -it [CONTAINER_ID] sh`. Replace `[CONTAINER_ID]` with the container ID you copied after running `docker ps`. Using the container ID above, the command would be `docker exec -it 1c91fd563023`.
 
-* This will open a shell where you can run `rails c` and any `rake` or `rails` commands in the container's environment.
+* This will open a shell where you can run `rails c` and any `rake` or `rails` commands in the container's environment. Run `rake db:create` and `rake db:migrate`. You will now be able to navigate to the application via `localhost:3000` and see the _Welcome to Rails!_ page.
 
-* While you can also connect to the container running Postgres, it's neither necessary nor recommended.
+* While you can also connect to the container that is running Postgres, it's neither necessary nor recommended. The Postgres container will persist your database.
 
 * If you need to re-run a process and you get the following error `Bind for 0.0.0.0:3000 failed: port is already allocated`, that means your processes are still running. Run `docker ps` to find the container IDs for running Docker processes and then run `docker stop [CONTAINER_ID]` where `[CONTAINER_ID]` is the container ID of the process. Use this whenever you need to manually stop a Docker process.
 
