@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+# See explanation below!
+# The asterisk, *, includes all files in a search or query; this can be used a a wildcard, matching anything except a slash. The rules for patter formats for .gitattributes follows the same as for .gitignore. [See the docs for pattern format here](https://www.git-scm.com/docs/gitignore#_pattern_format).
+# text=auto enables Git's auto-detection algorithm to infer if a file is text, and if it is, normalize the line ending to LF line endings, regardless of OS or git configurations.
+# eol=lf means the end of line (EOL) should be set to LF style line endings.
+
+*.{png,jpg,jpeg,gif,webp,woff,woff2} binary
+
+# See explanation below!
+# The following line uses *.{ } to match files in the project with any of the extensions listed in the curly brackets, like .png, .jpg, .jpeg, and so on. These files are then declared as binary files. 
+# We do this in case Git's auto-detection algorithm fails and marks them as text files, which would cause Git to change the line endings in the files (changing CRLF characters to LF characters), which could potentially break the files, making them unusable. 
